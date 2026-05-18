@@ -1,0 +1,192 @@
+[gd_scene load_steps=8 format=3 uid="uid://settingspanel1"]
+
+[ext_resource type="Script" path="res://scenes/settings_panel.gd" id="1_sp"]
+
+[sub_resource type="SystemFont" id="SystemFont_bold"]
+font_names = PackedStringArray("Segoe UI", "Segoe UI Emoji", "Arial")
+font_weight = 700
+
+[sub_resource type="SystemFont" id="SystemFont_regular"]
+font_names = PackedStringArray("Segoe UI", "Segoe UI Emoji", "Arial")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.15, 0.12, 0.2, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.6, 0.7, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 0.6, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 0.75, 0.82, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SettingsPanel" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_sp")
+layer = 20
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.4)
+
+[node name="Card" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -220.0
+offset_right = 280.0
+offset_bottom = 220.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="Card"]
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 28
+
+[node name="VBox" type="VBoxContainer" parent="Card/Margin"]
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Card/Margin/VBox"]
+text = "Physics Settings"
+horizontal_alignment = 1
+theme_override_fonts/font = SubResource("SystemFont_bold")
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(1, 0.8, 0.9, 1)
+
+[node name="Sliders" type="VBoxContainer" parent="Card/Margin/VBox"]
+theme_override_constants/separation = 14
+
+[node name="Gravity" type="HBoxContainer" parent="Card/Margin/VBox/Sliders"]
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Card/Margin/VBox/Sliders/Gravity"]
+custom_minimum_size = Vector2(80, 0)
+text = "Gravity"
+theme_override_fonts/font = SubResource("SystemFont_regular")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Slider" type="HSlider" parent="Card/Margin/VBox/Sliders/Gravity"]
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 100.0
+max_value = 2000.0
+step = 10.0
+value = 980.0
+
+[node name="Value" type="Label" parent="Card/Margin/VBox/Sliders/Gravity"]
+custom_minimum_size = Vector2(100, 0)
+text = "9.8 m/s²"
+horizontal_alignment = 2
+theme_override_fonts/font = SubResource("SystemFont_regular")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Jump" type="HBoxContainer" parent="Card/Margin/VBox/Sliders"]
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Card/Margin/VBox/Sliders/Jump"]
+custom_minimum_size = Vector2(80, 0)
+text = "Jump"
+theme_override_fonts/font = SubResource("SystemFont_regular")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Slider" type="HSlider" parent="Card/Margin/VBox/Sliders/Jump"]
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -1500.0
+max_value = -200.0
+step = 10.0
+value = -900.0
+
+[node name="Value" type="Label" parent="Card/Margin/VBox/Sliders/Jump"]
+custom_minimum_size = Vector2(100, 0)
+text = "-900"
+horizontal_alignment = 2
+theme_override_fonts/font = SubResource("SystemFont_regular")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Speed" type="HBoxContainer" parent="Card/Margin/VBox/Sliders"]
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Card/Margin/VBox/Sliders/Speed"]
+custom_minimum_size = Vector2(80, 0)
+text = "Speed"
+theme_override_fonts/font = SubResource("SystemFont_regular")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Slider" type="HSlider" parent="Card/Margin/VBox/Sliders/Speed"]
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 100.0
+max_value = 800.0
+step = 10.0
+value = 400.0
+
+[node name="Value" type="Label" parent="Card/Margin/VBox/Sliders/Speed"]
+custom_minimum_size = Vector2(100, 0)
+text = "400"
+horizontal_alignment = 2
+theme_override_fonts/font = SubResource("SystemFont_regular")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Spacer" type="Control" parent="Card/Margin/VBox"]
+custom_minimum_size = Vector2(0, 8)
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Card/Margin/VBox"]
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="Reset" type="Button" parent="Card/Margin/VBox/Buttons"]
+text = "Reset Defaults"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_bold")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+
+[node name="Close" type="Button" parent="Card/Margin/VBox/Buttons"]
+text = "Close"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_bold")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
