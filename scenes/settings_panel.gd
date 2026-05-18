@@ -22,7 +22,7 @@ func _ready() -> void:
 	_on_speed_changed(speed_slider.value)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_Y:
 		_toggle()
 		get_viewport().set_input_as_handled()
 

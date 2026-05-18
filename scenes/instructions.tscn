@@ -88,7 +88,7 @@ SPACE to jump
 ⚠️ Avoid the red spinning hazards
 🟡 Reach the golden platform to win
 
-Press ESC to adjust physics live"
+Press Y to adjust physics live"
 horizontal_alignment = 1
 theme_override_constants/line_spacing = 8
 theme_override_fonts/font = SubResource("SystemFont_regular")
