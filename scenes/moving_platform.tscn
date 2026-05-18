@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://movplat00000001"]
+
+[ext_resource type="Texture2D" uid="uid://bjg551sy636lf" path="res://Terrain (16x16).png" id="1_terrain"]
+[ext_resource type="Script" path="res://scenes/moving_platform.gd" id="2_mp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp"]
+atlas = ExtResource("1_terrain")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mp"]
+size = Vector2(96, 48)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+sync_to_physics = true
+script = ExtResource("2_mp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_mp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mp")
