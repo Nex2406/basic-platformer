@@ -81,7 +81,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_colors/font_color = Color(1, 0.8, 0.9, 1)
 
 [node name="Body" type="Label" parent="Card/Margin/VBox"]
-text = "← → or A/D to move
+text = "← → arrow keys to move
 SPACE to jump
 
 🍒 Collect cherries
