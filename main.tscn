@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://hv4f7okct38a"]
+[gd_scene load_steps=13 format=3 uid="uid://hv4f7okct38a"]
 
 [ext_resource type="Texture2D" uid="uid://dkummi5mofk5d" path="res://Green.png" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bjg551sy636lf" path="res://Terrain (16x16).png" id="2_1bvp3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" path="res://scenes/fall_plane.tscn" id="7_fp"]
 [ext_resource type="PackedScene" path="res://scenes/rotating_spike.tscn" id="8_rs"]
 [ext_resource type="PackedScene" path="res://scenes/level_end.tscn" id="9_le"]
+[ext_resource type="PackedScene" path="res://scenes/cherry_hud.tscn" id="10_hud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
 texture = ExtResource("2_1bvp3")
@@ -283,3 +284,5 @@ angular_velocity = 1.4
 
 [node name="LevelEnd" parent="." instance=ExtResource("9_le")]
 position = Vector2(3576, 352)
+
+[node name="CherryHUD" parent="." instance=ExtResource("10_hud")]
